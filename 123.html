@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Safe Future — Ubezpieczenia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #f7f8fa;
+        --card: #ffffff;
+        --accent: #123047;
+        --muted: #667085;
+        --radius: 16px;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial;
+        background: var(--bg);
+        color: #0b1720;
+        line-height: 1.45;
+        overflow-x: hidden;
+      }
+
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 14px 8%;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+        z-index: 1000;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .logo {
+        width: 52px;
+        height: 52px;
+      }
+      .brand h1 {
+        margin: 0;
+        font-size: 18px;
+      }
+      .brand p {
+        margin: 0;
+        font-size: 12px;
+        color: var(--muted);
+      }
+      nav {
+        display: flex;
+        gap: 16px;
+      }
+      nav a {
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 14px;
+        padding: 8px 14px;
+        border-radius: 8px;
+      }
+      .btn {
+        background: var(--accent);
+        color: #fff;
+      }
+      .ghost {
+        color: var(--accent);
+        border: 1px solid rgba(18, 48, 71, 0.15);
+      }
+
+      section {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 100px 8% 60px;
+        scroll-snap-align: start;
+      }
+      main {
+        scroll-snap-type: y mandatory;
+        overflow-y: auto;
+        height: 100vh;
+      }
+
+      /* hero */
+      #hero {
+        background: linear-gradient(135deg, #fdfdfd, #f2f5f8);
+      }
+      #hero .content {
+        max-width: 800px;
+        text-align: center;
+      }
+      #hero h2 {
+        font-size: 48px;
+        margin-bottom: 14px;
+      }
+      #hero p {
+        font-size: 18px;
+        color: var(--muted);
+        margin-bottom: 26px;
+      }
+      #hero .cta {
+        display: flex;
+        justify-content: center;
+        gap: 14px;
+      }
+      #hero .cta a {
+        padding: 14px 20px;
+        font-size: 15px;
+      }
+
+      /* services */
+      #services .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        width: 100%;
+        max-width: 1100px;
+      }
+      .service-card {
+        background: var(--card);
+        padding: 24px;
+        border-radius: var(--radius);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+        transition: transform 0.2s;
+      }
+      .service-card:hover {
+        transform: translateY(-6px);
+      }
+      .service-card h4 {
+        margin-bottom: 10px;
+        font-size: 20px;
+      }
+      .service-card p {
+        color: var(--muted);
+      }
+
+      /* about */
+      #about {
+        background: #fff;
+      }
+      #about .inner {
+        max-width: 900px;
+        text-align: center;
+      }
+      #about h3 {
+        font-size: 32px;
+        margin-bottom: 16px;
+      }
+      #about p {
+        font-size: 18px;
+        color: var(--muted);
+      }
+
+      /* contact */
+      #kontakt .card {
+        background: var(--accent);
+        color: #fff;
+        padding: 32px;
+        border-radius: var(--radius);
+        max-width: 420px;
+        width: 100%;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+      }
+      .card .name {
+        font-size: 22px;
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
+      .card .role {
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.85);
+        margin-bottom: 18px;
+      }
+      .contact-list {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .contact-item {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+      }
+      .contact-item svg {
+        flex: 0 0 22px;
+      }
+
+      footer {
+        background: #0d2233;
+        color: #fff;
+        text-align: center;
+        padding: 18px;
+        font-size: 14px;
+      }
+
+      @media (max-width: 768px) {
+        #hero h2 {
+          font-size: 34px;
+        }
+        #hero p {
+          font-size: 16px;
+        }
+        header {
+          padding: 12px 18px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="brand">
+        <img class="logo" src="/logo.jpeg" alt="logo" />
+        <div>
+          <h1>SAFE FUTURE</h1>
+          <p>Ubezpieczenia — Izabela Fatek</p>
+        </div>
+      </div>
+      <nav>
+        <a class="ghost" href="#services">Usługi</a>
+        <a class="ghost" href="#about">O nas</a>
+        <a class="ghost" href="#kontakt">Kontakt</a>
+        <a class="btn" href="tel:+48785415787">Zadzwoń</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="hero">
+        <div class="content">
+          <h2>Czysta. Jasna. Przejrzysta.</h2>
+          <p>
+            Kompleksowe ubezpieczenia na życie, komunikacyjne, majątkowe,
+            firmowe i podróżne. Dopasowane do Twoich potrzeb.
+          </p>
+          <div class="cta">
+            <a class="btn" href="#services">Poznaj ofertę</a>
+            <a class="ghost" href="#kontakt">Skontaktuj się</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="services">
+        <div class="grid">
+          <div class="service-card">
+            <h4>Ubezpieczenia na życie</h4>
+            <p>Ochrona finansowa bliskich.</p>
+          </div>
+          <div class="service-card">
+            <h4>Komunikacyjne (OC/AC)</h4>
+            <p>Bezpieczeństwo na drodze.</p>
+          </div>
+          <div class="service-card">
+            <h4>Majątkowe</h4>
+            <p>Dom, mieszkanie i mienie pod ochroną.</p>
+          </div>
+          <div class="service-card">
+            <h4>Firmowe</h4>
+            <p>Dopasowane polisy dla biznesu.</p>
+          </div>
+          <div class="service-card">
+            <h4>Podróżne</h4>
+            <p>Bezpieczne podróże z assistance.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="about">
+        <div class="inner">
+          <h3>Dlaczego my?</h3>
+          <p>
+            Safe Future to profesjonalizm, przejrzyste warunki i indywidualne
+            podejście. Z nami masz pewność, że Twoja przyszłość i bliscy są
+            odpowiednio zabezpieczeni.
+          </p>
+        </div>
+      </section>
+
+      <section id="kontakt">
+        <div class="card">
+          <img
+            src="/logo.jpeg"
+            alt="logo"
+            style="
+              width: 60px;
+              height: 60px;
+              object-fit: contain;
+              margin-bottom: 16px;
+            "
+          />
+          <div class="name">Izabela Fatek</div>
+          <div class="role">Agent ubezpieczeniowy</div>
+          <div class="contact-list">
+            <div class="contact-item">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path d="M3 12h18M3 6h18" stroke="white" />
+              </svg>
+              NIP: 638-170-74-19
+            </div>
+          </div>
+          <div
+            style="margin-top: 20px; display: flex; gap: 10px; flex-wrap: wrap"
+          >
+            <a class="btn" href="mailto:izabela@sfubezpieczenia.pl"
+              >Napisz wiadomość</a
+            >
+            <a class="ghost" href="#services">Oferta</a>
+          </div>
+          <img
+            src="/wizytowka.jpeg"
+            alt="wizytówka"
+            style="width: 100%; margin-top: 20px; border-radius: 10px"
+          />
+        </div>
+      </section>
+
+      <footer>
+        © SAFE FUTURE — Ubezpieczenia • Izabela Fatek • tel. 785 415 787 •
+        izabela@sfubezpieczenia.pl
+      </footer>
+    </main>
+
+    <script>
+      document.querySelectorAll('a[href^="#"]').forEach((a) => {
+        a.addEventListener("click", (e) => {
+          const t = document.querySelector(a.getAttribute("href"));
+          if (t) {
+            e.preventDefault();
+            t.scrollIntoView({ behavior: "smooth" });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
