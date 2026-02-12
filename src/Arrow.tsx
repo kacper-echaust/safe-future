@@ -12,15 +12,17 @@ export default function ScrollDownArrow() {
         ease: "easeInOut",
       }}
     >
-      <IoIosArrowDown
-        className="w-10 h-10 text-gray-700"
-        style={{
-          color: "white",
-          width: "150px",
-          height: "50px",
-          fontWeight: "normal",
-        }}
-      />
+      <a href="#about">
+        <IoIosArrowDown
+          className="w-10 h-10 text-gray-700"
+          style={{
+            color: "white",
+            width: "150px",
+            height: "50px",
+            fontWeight: "normal",
+          }}
+        />
+      </a>
     </motion.div>
   );
 }

@@ -16,7 +16,7 @@ export default function TypingWithCursor() {
   }, []);
 
   return (
-    <h1 style={{ fontSize: "24px", fontWeight: "bold" }}>
+    <h1 className="write-text" style={{ fontWeight: "bold" }}>
       {displayed}
       <motion.span
         animate={{ opacity: [0, 1, 0] }}
