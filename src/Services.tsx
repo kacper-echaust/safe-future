@@ -38,7 +38,12 @@ const Services = () => {
     <section id="services">
       <div className="grid">
         {data.map((item) => (
-          <Card key={item.id} image={item.image} title={item.title} />
+          <Card
+            key={item.id}
+            id={item.id}
+            image={item.image}
+            title={item.title}
+          />
         ))}
       </div>
     </section>

@@ -1,3 +1,4 @@
+import { AboutMe } from "./AboutMe";
 import { Contact } from "./Contact";
 import { Footer } from "./Footer";
 import { Header } from "./Header";
@@ -10,6 +11,7 @@ const App = () => {
       <Header />
       <main>
         <Hero />
+        <AboutMe />
         <Services />
         <Contact />
       </main>

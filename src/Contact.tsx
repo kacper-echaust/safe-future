@@ -1,9 +1,17 @@
 import wizytowka from "./assets/wizytowka.jpeg";
+import { motion } from "motion/react";
 const Contact = () => {
   return (
     <section id="contact">
       <div className="container">
-        <div className="informations-container">
+        <motion.div
+          className="informations-container"
+          initial={{ opacity: 0, x: -150 }}
+          whileInView={{
+            opacity: 1,
+            x: 0,
+          }}
+        >
           <h2>Skontaktuj się z nami</h2>
           <p>Masz pytania? Skontaktuj się telefonicznie lub mailowo.</p>
           <ul>
@@ -25,10 +33,17 @@ const Contact = () => {
               Więcej informacji
             </a>
           </li>
-        </div>
-        <div className="image-container">
+        </motion.div>
+        <motion.div
+          className="image-container"
+          initial={{ opacity: 0, x: 150 }}
+          whileInView={{
+            opacity: 1,
+            x: 0,
+          }}
+        >
           <img src={wizytowka} alt="wizytówka" />
-        </div>
+        </motion.div>
       </div>
     </section>
   );
